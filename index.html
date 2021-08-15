@@ -119,7 +119,7 @@ void main() {
 				exit(1);
 				break;
 			default:
-				printf("\n****Please enter a valid choice****\n");
+				printf("\n****Please Enter a Valid Choice****\n\n");
 		}
 	}
 }
@@ -192,17 +192,21 @@ void del() {
 	display();
 }
 void srch(){
-	int num=0,i;
+	int num=0,i, pos;
 	printf("\nEnter the Integer: ");
     scanf("%d", &num);
-     
+     pos = 0;
     for(i=0; i&lt;n; i++) {
         if(a[i]==num) {
-			printf("\n\tElement Found\n");
-            return 0;		 
+        	pos = 1;
+        	break;	 
         }
     }
-	printf("\n\t****Element  Not  Found****\n");
+    if(pos==1){
+    	printf("\n\tElement \"%d\" Found at Position %d", num, i+1);
+	}else{
+		printf("\n\t****Element  Not  Found****\n");
+	}
 }</code></pre></li>
 <li class="que" id="3"><b>Programs for Stack, Queues and Circular Queues using Arrays.</b><pre class="language-c">
 <code>#include&lt;stdio.h&gt;
