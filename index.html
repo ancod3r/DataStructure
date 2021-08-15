@@ -42,7 +42,7 @@
 
 <nav class="navbar" style="display: none">
 	<div class="navbar-container">
-		<a href="#1">1</a><a href="#2">2</a><a href="#3">3</a><a href="#4">4</a><a href="#5">5</a><a href="#6">6</a><a href="#7">7</a><a href="#8">8</a><a href="#9">9</a><a href="#10">10</a><a href="#11">11</a><a href="#12">12</a><a href="#13">13</a><a href="#14">14</a><a href="#15">15</a><a href="#16">16</a>
+		<a href="#1">1</a><a href="#2">2</a><a href="#3">3</a><a href="#4">4</a><a href="#5">5</a><a href="#6">6</a><a href="#7">7</a><a href="#8">8</a><a href="#9">9</a><a href="#10">10</a><a href="#11">11</a><a href="#12">12</a><a href="#13">13</a><a href="#14">14</a><a href="#15">15</a><a href="#16">16</a><a href="#17">17</a>
 	</div>
 </nav>
 
@@ -64,6 +64,151 @@ int main(){
 */ 
 </code></pre></li> 
 <li class="que" id="2"><b>Develop and Implement a menu driven program in C for the following Array operations.</b>
+<ul>
+<li>Creating Array of N Integer elements.</li>
+<li>Display of Array elements with suitable headings.</li>
+<li>Find the total Number of Elements in an Array.</li>
+<li>Inserting an element (ELEM) at a given valid position (POS).</li>
+<li>Deleting an element at a given valid position (POS).</li>
+<li>Search an Element in Given array.</li>
+<li>Exit </li></ul><pre class="language-c">
+<code>// Taklu's Array Program (Ye Program Sanu k liye hai)...
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int a[10], pos, elem;
+int n = 0;
+void create();
+void display();
+void siz();
+void insert();
+void del();
+void srch();
+void main() {
+	int choice;
+	while (1) {
+		printf("\n************MENU************");
+		printf("\n1. Create an Array of N Integers");
+		printf("\n2. Display of Array Elements");
+		printf("\n3. Get the Total Number of Elements of an array");
+		printf("\n4. Insert ELEM at a Given POS");
+		printf("\n5. Delete an Element at a Given POS");
+		printf("\n6. Search an Element");
+		printf("\n7. EXIT");
+		printf("\nEnter Your Choice: ");
+		scanf("%d", & choice);
+		switch (choice) {
+			case 1:
+				create();
+				break;
+			case 2:
+				display();
+				break;
+			case 3:
+				siz();
+				break;
+			case 4:
+				insert();
+				break;
+			case 5:
+				del();
+				break;
+			case 6:
+				srch();
+				break;
+			case 7:
+				exit(1);
+				break;
+			default:
+				printf("\nPlease enter a valid choice:");
+		}
+	}
+}
+void create() {
+	int i;
+	printf("\nEnter the Size of Array: ");
+	scanf("%d", & n);
+	printf("\nEnter the Elements: ");
+	for (i = 0; i &lt; n; i++) {
+		scanf("%d", & a[i]);
+	}
+}
+void siz() {
+	int i, len;
+	if (n == 0) {
+		printf("\n****Array has No Elements(NO SIZE)****\n");
+		return;
+	}
+	for (i = 0; i &lt; sizeof(n); i++) {
+		len = n;
+	}
+	printf("\n\t The Size of Array is: %d\n", len);
+}
+void display() {
+	int i;
+	if (n == 0) {
+		printf("\n****No Elements to Display****\n");
+		return;
+	}
+	printf("\nArray Elements Are: ");
+	for (i = 0; i &lt; n; i++) {
+		printf("%d\t ", a[i]);
+	}
+}
+void insert() {
+	int i;
+	if (n == 5) {
+		printf("\n****Array is Full. Insertion is Not Possible****\n");
+		return;
+	}
+	do {
+		printf("\nEnter a Valid Position where Element to be Inserted:  ");
+		scanf("%d", & pos);
+	} while (pos &gt; n);
+	printf("\nEnter the Value to be Inserted: ");
+	scanf("%d", & elem);
+	for (i = n - 1; i &gt;= pos; i--) {
+		a[i + 1] = a[i];
+	}
+	a[pos] = elem;
+	n = n + 1;
+	display();
+}
+void del() {
+	int i;
+	if (n == 0) {
+		printf("\n****Array is Empty and No Elements to Delete****\n");
+		return;
+	}
+	do {
+		printf("\nEnter a Valid Position from where Element to be Deleted:  ");
+		scanf("%d", & pos);
+	} while (pos &gt;= n);
+	elem = a[pos];
+	printf("\nDeleted Element is : %d \n", elem);
+	for (i = pos; i &lt; n - 1; i++) {
+		a[i] = a[i + 1];
+	}
+	n = n - 1;
+	display();
+}
+void srch(){
+	int num=0,i;
+	printf("\nEnter the Integer: ");
+    scanf("%d", &num);
+     
+    for(i=0; i&lt;n; i++)
+    {
+        if(a[i]==num)
+        {
+			printf("\n\tElement Found\n");
+            return 0;		 
+        }
+    }
+	printf("\n\t****Element  Not  Found****\n");
+}</code></pre></li> 
+<li class="que" id="3"><b>Develop and Implement a menu driven program in C for the following Array operations.</b>
 <ul>
 <li>Creating Array of N Integer elements.</li>
 <li>Display of Array elements with suitable headings.</li>
@@ -169,7 +314,7 @@ void del() {
 	display();
 }
 </code></pre></li> 
-<li class="que" id="3"><b>Programs for Stack, Queues and Circular Queues using Arrays.</b><pre class="language-c">
+<li class="que" id="4"><b>Programs for Stack, Queues and Circular Queues using Arrays.</b><pre class="language-c">
 <code>#include&lt;stdio.h&gt;
 
 int stack[100], choice, n, top, x, i;
@@ -427,7 +572,7 @@ void display() {
 }
 */
 </code></pre></li> 
-<li class="que" id="4"><b> Program to convert an Infix Expression into Postfix Expression and vice-versa.</b><pre class="language-c">
+<li class="que" id="5"><b> Program to convert an Infix Expression into Postfix Expression and vice-versa.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
 
@@ -481,7 +626,7 @@ int main() {
 	return 0;
 }
 </code></pre></li> 
-<li class="que" id="5"><b>Program to implement stack using arrays.</b><pre class="language-c">
+<li class="que" id="6"><b>Program to implement stack using arrays.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 
 int stack[100], choice, n, top, x, i;
@@ -547,7 +692,7 @@ void display() {
     }
 }
 </code></pre></li> 
-<li class="que" id="6"><b>Program to implement stack using linked list.</b><pre class="language-c">
+<li class="que" id="7"><b>Program to implement stack using linked list.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
@@ -623,7 +768,7 @@ void display() {
 		}
 }
 </code></pre></li> 
-<li class="que" id="7"><b>Program to implement multiple stack in a single array.</b><pre class="language-c">
+<li class="que" id="8"><b>Program to implement multiple stack in a single array.</b><pre class="language-c">
 <code>// This Program is to Implement two Stacks using a Single Array.
 #include &lt;stdio.h&gt;
 #define SIZE 10
@@ -709,7 +854,7 @@ int main() {
     return 0;
 }
 </code></pre></li> 
-<li class="que" id="8"><b>Program to convert infix notation to postfix notation using stacks.</b><pre class="language-c">
+<li class="que" id="9"><b>Program to convert infix notation to postfix notation using stacks.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;ctype.h&gt;
 
@@ -762,7 +907,7 @@ int main() {
 	return 0;
 }
 </code></pre></li> 
-<li class="que" id="9"><b>Program to implement queue using arrays.</b><pre class="language-c">
+<li class="que" id="10"><b>Program to implement queue using arrays.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #define n 5
 
@@ -810,7 +955,7 @@ int main() {
     return 0;
 }
 </code></pre></li> 
-<li class="que" id="10"><b>Program to implement queue using pointers.<span style="color: red">&nbsp;May you get some Error</span></b><pre class="language-c">
+<li class="que" id="11"><b>Program to implement queue using pointers.<span style="color: red">&nbsp;May you get some Error</span></b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 #include &lt;process.h&gt;
@@ -919,7 +1064,7 @@ void show_ele() {
 			}
 }
 </code></pre></li> 
-<li class="que" id="11"><b>Program to reverse elements in a queue.</b><pre class="language-c">
+<li class="que" id="12"><b>Program to reverse elements in a queue.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 
 int f = -1, r = -1;
@@ -966,7 +1111,7 @@ void main() {
     print();
 }
 </code></pre></li> 
-<li class="que" id="12"><b>Program to implement circular queue using arrays.</b><pre class="language-c">
+<li class="que" id="13"><b>Program to implement circular queue using arrays.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 # define max 6
 int queue[max]; 		// array declaration  
@@ -1041,7 +1186,7 @@ int main() {
     return 0;
 }
 </code></pre></li> 
-<li class="que" id="13"><b>Program to create add remove & display element from single linked list.</b><pre class="language-c">
+<li class="que" id="14"><b>Program to create add remove & display element from single linked list.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;string.h&gt;
@@ -1147,7 +1292,7 @@ void disrecord() {
     }
 }
 </code></pre></li> 
-<li class="que" id="14"><b>Program to create add remove & display element from double linked list.</b><pre class="language-c">
+<li class="que" id="15"><b>Program to create add remove & display element from double linked list.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 
@@ -1387,7 +1532,7 @@ struct node * del(struct node * start, int data) {
     return start;
 }
 </code></pre></li> 
-<li class="que" id="15"><b>Program to count number of nodes in linear linked list.</b><pre class="language-c">
+<li class="que" id="16"><b>Program to count number of nodes in linear linked list.</b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 struct node {
     int data;
@@ -1422,7 +1567,7 @@ void main() {
 	Total no. of nodes is: 4
 */
 </code></pre></li> 
-<li class="que" id="16"><b>Program to create add remove & display element from circular linked list.<span style="color: red">&nbsp;May you get some Error</span></b><pre class="language-c">
+<li class="que" id="17"><b>Program to create add remove & display element from circular linked list.<span style="color: red">&nbsp;May you get some Error</span></b><pre class="language-c">
 <code>#include &lt;stdio.h&gt;
 #include &lt;conio.h&gt;
 
