@@ -29,9 +29,9 @@ pre[class*="language-"] {
 	border-radius: 0.5em;
 }
 :not(pre) > code[class*="language-"],
-pre[class*="language-"] {
+/*pre[class*="language-"] {
 	background: #000;
-}
+}*/
 :not(pre) > code[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
