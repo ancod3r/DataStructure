@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "JS/index.html"
+  from = "/"
   to = "rajnishdsa.html"
   status = 301
   force = true
