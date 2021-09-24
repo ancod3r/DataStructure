@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "JS/index.html"
+  to = "../RajnishDSA.html"
+  status = 301
+  force = true
+  conditions = {Language = ["en"], Country = ["India"], Role = ["admin"]}
