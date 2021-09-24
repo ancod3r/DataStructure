@@ -1,6 +1,0 @@
-[[redirects]]
-  from = "*/"
-  to = "rajnishdsa.html"
-  status = 301
-  force = true
-  conditions = {Language = ["en"], Country = ["India"], Role = ["admin"]}
