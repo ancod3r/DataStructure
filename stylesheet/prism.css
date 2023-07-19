@@ -1,10 +1,18 @@
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+c&plugins=line-numbers+toolbar+copy-to-clipboard+match-braces */
+/**
+ * okaidia theme for JavaScript, CSS and HTML
+ * Loosely based on Monokai textmate theme by http://www.monokai.nl/
+ * @author ocodia
+ */
+
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #ff00d7;
+	color: #f8f8f2;
 	background: none;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-	font-family: 'JetBrains Mono', monospace;
-	font-variant-ligatures: none;
+	/*font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
+	font-family: codeFont, sans-serif !important;
 	font-size: 1em;
 	text-align: left;
 	white-space: pre;
@@ -22,16 +30,21 @@ pre[class*="language-"] {
 	-ms-hyphens: none;
 	hyphens: none;
 }
+
+/* Code blocks */
 pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
-	border-radius: 0.5em;
+	border-radius: 0.3em;
 }
+
 :not(pre) > code[class*="language-"],
-/*pre[class*="language-"] {
-	background: #000;
-}*/
+pre[class*="language-"] {
+	background: #272822;
+}
+
+/* Inline code */
 :not(pre) > code[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
@@ -58,7 +71,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-	color: #ff005c;
+	color: #f92672;
 }
 
 .token.boolean,
@@ -72,7 +85,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: #af0;
+	color: #a6e22e;
 }
 
 .token.operator,
@@ -88,11 +101,11 @@ pre[class*="language-"] {
 .token.attr-value,
 .token.function,
 .token.class-name {
-	color: #ff2400;
+	color: #e6db74;
 }
 
 .token.keyword {
-	color: #00d6ff;
+	color: #66d9ef;
 }
 
 .token.regex,
@@ -114,7 +127,7 @@ pre[class*="language-"] {
 
 pre[class*="language-"].line-numbers {
 	position: relative;
-	padding-left: 4em;
+	padding-left: 3.8em;
 	counter-reset: linenumber;
 }
 
@@ -159,6 +172,7 @@ div.code-toolbar {
 
 div.code-toolbar > .toolbar {
 	position: absolute;
+	z-index: 10;
 	top: .3em;
 	right: .2em;
 	transition: opacity 0.3s ease-in-out;
@@ -169,19 +183,21 @@ div.code-toolbar:hover > .toolbar {
 	opacity: 1;
 }
 
+/* Separate line b/c rules are thrown out if selector is invalid.
+   IE11 and old Edge versions don't support :focus-within. */
 div.code-toolbar:focus-within > .toolbar {
 	opacity: 1;
 }
 
-div.code-toolbar > .toolbar .toolbar-item {
+div.code-toolbar > .toolbar > .toolbar-item {
 	display: inline-block;
 }
 
-div.code-toolbar > .toolbar a {
+div.code-toolbar > .toolbar > .toolbar-item > a {
 	cursor: pointer;
 }
 
-div.code-toolbar > .toolbar button {
+div.code-toolbar > .toolbar > .toolbar-item > button {
 	background: none;
 	border: 0;
 	color: inherit;
@@ -189,27 +205,30 @@ div.code-toolbar > .toolbar button {
 	line-height: normal;
 	overflow: visible;
 	padding: 0;
-	-webkit-user-select: none;
+	-webkit-user-select: none; /* for button */
 	-moz-user-select: none;
 	-ms-user-select: none;
 }
 
-div.code-toolbar > .toolbar a,
-div.code-toolbar > .toolbar button,
-div.code-toolbar > .toolbar span {
-	color: #fff;
-	font-size: 0.8rem;
-	padding: 0.3em 0.3em;
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+	color: #bbb;
+	font-size: .8em;
+	padding: 0 .5em;
+	background: #f5f2f0;
+	background: rgba(224, 224, 224, 0.2);
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+	border-radius: .5em;
 }
 
-div.code-toolbar > .toolbar a:hover,
-div.code-toolbar > .toolbar a:focus,
-div.code-toolbar > .toolbar button:hover,
-div.code-toolbar > .toolbar button:focus,
-div.code-toolbar > .toolbar span:hover,
-div.code-toolbar > .toolbar span:focus {
-	cursor: pointer !important;
-    color: #00abff !important;
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -242,3 +261,4 @@ div.code-toolbar > .toolbar span:focus {
 	color: #E0E;
 	opacity: 1;
 }
+
